@@ -97,6 +97,16 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+        
+        .lang-switcher {
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            border: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
 
         /* Hero Section */
         .hero {
@@ -553,8 +563,14 @@
                 <li><a href="#about">Rólunk</a></li>
                 <li><a href="#contact">Kapcsolat</a></li>
             </ul>
+
+            <select class="lang-switcher">
+                <option value="hu" selected>HU</option>
+                <option value="en">EN</option>
+            </select>
         </nav>
     </header>
+
 
     <!-- Hero Section -->
     <div class="hero">
