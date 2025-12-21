@@ -12,9 +12,9 @@
         <nav>
             <a href="#" class="logo">🎨 Figrio Studio</a>
             <ul class="nav-links">
-                <li><a href="#gallery">Galéria</a></li>
-                <li><a href="#about">Rólunk</a></li>
-                <li><a href="#contact">Kapcsolat</a></li>
+                <li><a href="#gallery" data-i18n="nav.gallery">Galéria</a></li>
+                <li><a href="#about" data-i18n="nav.about">Rólunk</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Kapcsolat</a></li>
             </ul>
 
             <select class="lang-switcher">
@@ -26,19 +26,21 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1>Egyedi 3D Nyomtatott Figurák</h1>
-        <p>Kézzel festett, professzionális minőségű miniaturák és kulcstartók. Minden darab egyedi, gondosan kidolgozott.</p>
+        <h1 data-i18n="hero.title">Egyedi 3D Nyomtatott Figurák</h1>
+        <p data-i18n="hero.subtitle">
+            Kézzel festett, professzionális minőségű miniaturák és kulcstartók. Minden darab egyedi, gondosan kidolgozott.
+        </p>
     </div>
 
     <!-- Main Content -->
     <div class="container">
         <!-- Filters -->
         <div class="filter-section">
-            <button class="filter-btn active" data-filter="all">Összes</button>
-            <button class="filter-btn" data-filter="fantasy">Fantasy</button>
-            <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
-            <button class="filter-btn" data-filter="keychains">Kulcstartók</button>
-            <button class="filter-btn" data-filter="custom">Egyedi</button>
+            <button class="filter-btn active" data-filter="all" data-i18n="filters.all">Összes</button>
+            <button class="filter-btn" data-filter="fantasy" data-i18n="filters.fantasy">Fantasy</button>
+            <button class="filter-btn" data-filter="sci-fi" data-i18n="filters.scifi">Sci-Fi</button>
+            <button class="filter-btn" data-filter="keychains" data-i18n="filters.keys">Kulcstartók</button>
+            <button class="filter-btn" data-filter="custom" data-i18n="filters.custom">Egyedi</button>
         </div>
 
         <!-- Gallery -->
@@ -54,7 +56,9 @@
                 <div class="gallery-item-content">
                     <span class="gallery-item-category">Fantasy</span>
                     <h3 class="gallery-item-title">Fantasy Harcos</h3>
-                    <p class="gallery-item-description">Részletesen festett fantasy harcos figura. Élénk szín, finom részletmunkával.</p>
+                    <p class="gallery-item-description">
+                        Részletesen festett fantasy harcos figura. Élénk szín, finom részletmunkával.
+                    </p>
                     <p class="gallery-item-price">4,500 Ft</p>
                     <div class="gallery-item-actions">
                         <button class="btn btn-primary view-btn">Részletek</button>
@@ -74,7 +78,9 @@
                 <div class="gallery-item-content">
                     <span class="gallery-item-category">Sci-Fi</span>
                     <h3 class="gallery-item-title">Sci-Fi Pilóta</h3>
-                    <p class="gallery-item-description">Futurisztikus pilóta figura metál effektekkel. Technológiai részletmunkával.</p>
+                    <p class="gallery-item-description">
+                        Futurisztikus pilóta figura metál effektekkel. Technológiai részletmunkával.
+                    </p>
                     <p class="gallery-item-price">5,200 Ft</p>
                     <div class="gallery-item-actions">
                         <button class="btn btn-primary view-btn">Részletek</button>
@@ -94,7 +100,9 @@
                 <div class="gallery-item-content">
                     <span class="gallery-item-category">Kulcstartó</span>
                     <h3 class="gallery-item-title">Sárkány Kulcstartó</h3>
-                    <p class="gallery-item-description">Csini, kompakt sárkány kulcstartó. Kézi festésű, szilikon corrector.</p>
+                    <p class="gallery-item-description">
+                        Csini, kompakt sárkány kulcstartó. Kézi festésű, szilikon corrector.
+                    </p>
                     <p class="gallery-item-price">2,800 Ft</p>
                     <div class="gallery-item-actions">
                         <button class="btn btn-primary view-btn">Részletek</button>
@@ -114,7 +122,9 @@
                 <div class="gallery-item-content">
                     <span class="gallery-item-category">Egyedi</span>
                     <h3 class="gallery-item-title">Egyedi Megrendelés</h3>
-                    <p class="gallery-item-description">Saját ötleted szerinti figura. 3D tervezés, nyomtatás, festés - komplett csomag.</p>
+                    <p class="gallery-item-description">
+                        Saját ötleted szerinti figura. 3D tervezés, nyomtatás, festés - komplett csomag.
+                    </p>
                     <p class="gallery-item-price">6,000+ Ft</p>
                     <div class="gallery-item-actions">
                         <button class="btn btn-primary view-btn">Részletek</button>
@@ -134,7 +144,9 @@
                 <div class="gallery-item-content">
                     <span class="gallery-item-category">Fantasy</span>
                     <h3 class="gallery-item-title">Elf Vadász</h3>
-                    <p class="gallery-item-description">Filigránul kifestett elf figura íjjal. Részletes arcrészletekkel és zöld árnyalatokkal.</p>
+                    <p class="gallery-item-description">
+                        Filigránul kifestett elf figura íjjal. Részletes arcrészletekkel és zöld árnyalatokkal.
+                    </p>
                     <p class="gallery-item-price">4,800 Ft</p>
                     <div class="gallery-item-actions">
                         <button class="btn btn-primary view-btn">Részletek</button>
@@ -154,7 +166,9 @@
                 <div class="gallery-item-content">
                     <span class="gallery-item-category">Kulcstartó</span>
                     <h3 class="gallery-item-title">Cuki Lény Kulcstartó</h3>
-                    <p class="gallery-item-description">Mini chibi stílus figura. Puha színek, vicces karakterek gyerekeknek vagy ajándéknak.</p>
+                    <p class="gallery-item-description">
+                        Mini chibi stílus figura. Puha színek, vicces karakterek gyerekeknek vagy ajándéknak.
+                    </p>
                     <p class="gallery-item-price">2,500 Ft</p>
                     <div class="gallery-item-actions">
                         <button class="btn btn-primary view-btn">Részletek</button>
