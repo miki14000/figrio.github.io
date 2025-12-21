@@ -4,7 +4,7 @@ const viewBtns = document.querySelectorAll('.view-btn');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-// Mock product data
+// Mock product data (HU szövegek)
 const productData = {
     'Fantasy Harcos': {
         size: '60mm',
@@ -57,9 +57,11 @@ viewBtns.forEach(btn => {
 });
 
 // Close modal
-closeBtn.addEventListener('click', function () {
-    modal.style.display = 'none';
-});
+if (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+}
 
 window.addEventListener('click', function (event) {
     if (event.target === modal) {
@@ -90,3 +92,62 @@ document.addEventListener('keydown', function (event) {
         modal.style.display = 'none';
     }
 });
+
+// -------- Nyelvválasztó (HU / EN) --------
+
+const translations = {
+    hu: {
+        "nav.gallery": "Galéria",
+        "nav.about": "Rólunk",
+        "nav.contact": "Kapcsolat",
+
+        "hero.title": "Egyedi 3D Nyomtatott Figurák",
+        "hero.subtitle":
+            "Kézzel festett, professzionális minőségű miniaturák és kulcstartók. Minden darab egyedi, gondosan kidolgozott.",
+
+        "filters.all": "Összes",
+        "filters.fantasy": "Fantasy",
+        "filters.scifi": "Sci-Fi",
+        "filters.keys": "Kulcstartók",
+        "filters.custom": "Egyedi"
+    },
+    en: {
+        "nav.gallery": "Gallery",
+        "nav.about": "About",
+        "nav.contact": "Contact",
+
+        "hero.title": "Custom 3D Printed Figures",
+        "hero.subtitle":
+            "Hand-painted, professional quality miniatures and keychains. Every piece is unique and carefully crafted.",
+
+        "filters.all": "All",
+        "filters.fantasy": "Fantasy",
+        "filters.scifi": "Sci‑Fi",
+        "filters.keys": "Keychains",
+        "filters.custom": "Custom"
+    }
+};
+
+const langSelect = document.querySelector(".lang-switcher");
+
+function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const text = translations[lang] && translations[lang][key];
+        if (text) el.textContent = text;
+    });
+
+    localStorage.setItem("site-lang", lang);
+}
+
+if (langSelect) {
+    const saved = localStorage.getItem("site-lang") || "hu";
+    langSelect.value = saved;
+    applyLanguage(saved);
+
+    langSelect.addEventListener("change", () => {
+        applyLanguage(langSelect.value);
+    });
+}
