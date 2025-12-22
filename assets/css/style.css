@@ -539,3 +539,14 @@ footer {
 .hidden {
     display: none;
 }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+}
