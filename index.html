@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Nyomtatott Figurák | Egyedi Miniaturák</title>
+    <title>Custom 3D-Printed Collectibles</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -22,23 +22,20 @@
   <span class="logo-text">Figrio Studio</span>
 </a>
             <ul class="nav-links">
-                <li><a href="#gallery" data-i18n="nav.gallery">Galery</a></li>
-                <li><a href="#about" data-i18n="nav.about">Rólunk</a></li>
-                <li><a href="#contact" data-i18n="nav.contact">Kapcsolat</a></li>
+                <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+                <li><a href="#about" data-i18n="nav.about">Who we are?</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
 
-            <select class="lang-switcher">
-                <option value="hu" selected>HU</option>
-                <option value="en">EN</option>
-            </select>
+
         </nav>
     </header>
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1 data-i18n="hero.title">Egyedi 3D Nyomtatott Figurák</h1>
+        <h1 data-i18n="hero.title">Custom 3D-Printed Collectibles — Handcrafted in the EU</h1>
         <p data-i18n="hero.subtitle">
-            Kézzel festett, professzionális minőségű miniaturák és kulcstartók. Minden darab egyedi, gondosan kidolgozott.
+            Keychains, magnets, wearable pendants, and display pieces — each item is carefully designed and hand-finished.
         </p>
     </div>
 
@@ -46,130 +43,117 @@
     <div class="container">
         <!-- Filters -->
         <div class="filter-section">
-            <button class="filter-btn active" data-filter="all" data-i18n="filters.all">Összes</button>
-            <button class="filter-btn" data-filter="fantasy" data-i18n="filters.fantasy">Fantasy</button>
-            <button class="filter-btn" data-filter="sci-fi" data-i18n="filters.scifi">Sci-Fi</button>
+            <button class="filter-btn active" data-filter="all" data-i18n="filters.all">All</button>
+            <button class="filter-btn" data-filter="amulett" data-i18n="filters.amulett">Amulett</button>
+            <button class="filter-btn" data-filter="collectibles" data-i18n="filters.collectibles">Collectibles</button>
             <button class="filter-btn" data-filter="keychains" data-i18n="filters.keys">Kulcstartók</button>
-            <button class="filter-btn" data-filter="custom" data-i18n="filters.custom">Egyedi</button>
+            <button class="filter-btn" data-filter="magnets" data-i18n="filters.magnets">Magnets</button>
         </div>
 
-<!-- new gallery -->
-  <!-- uj cat body -->
-  <div class="cat-body">
-        
-        <div class="cat-header">
-  <p class="cat-subtitle">Behind creativity</p>
-  <h1 class="cat-main-title">Curious what else we've created?</h1>
-</div>
-
-<div class="slider-container" id="sliderContainer">
-  <div class="slider-track" id="sliderTrack">
-    <div class="card" data-title="Beverage Branding" data-desc="Fresh and vibrant packaging design for premium juice products with natural ingredients">
-      <img src="https://images.unsplash.com/photo-1546548970-71785318a17b?w=600&h=800&fit=crop" alt="Card 1">
-      <div class="hover-overlay"><span>Click to see more</span></div>
+        <!--  buborékok -->
+<section class="memory-section">
+  <div class="memory-column left">
+    <div class="book-page">
+      <img src="assets/img/blender1.jpg" alt="Modelling">
+      <span class="memory-caption">Modelling</span>
     </div>
-    <div class="card" data-title="Apparel Design" data-desc="Minimalist fashion collection with sustainable materials and modern aesthetics">
-      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=800&fit=crop" alt="Card 2">
-      <div class="hover-overlay"><span>Click to see more</span></div>
-    </div>
-    <div class="card" data-title="Luxury Packaging" data-desc="Premium product packaging with attention to detail and sophisticated finishes">
-      <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&h=800&fit=crop" alt="Card 3">
-      <div class="hover-overlay"><span>Click to see more</span></div>
-    </div>
-    <div class="card" data-title="Cosmetics Brand" data-desc="Clean beauty brand identity with elegant and timeless design approach">
-      <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=800&fit=crop" alt="Card 4">
-      <div class="hover-overlay"><span>Click to see more</span></div>
+    <div class="book-page">
+      <img src="assets/img/printed1.jpg" alt="Printing">
+      <span class="memory-caption">Printing</span>
     </div>
   </div>
-</div>
 
-<button class="close-btn" id="closeBtn">
-  <svg viewBox="0 0 24 24" fill="none">
-    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-  </svg>
-</button>
+  <div class="memory-column right">
+    <div class="book-page">
+      <img src="assets/img/painted1.jpg" alt="Painting">
+      <span class="memory-caption">Painting</span>
+    </div>
+    <div class="book-page">
+      <img src="assets/img/send1.jpg" alt="Sending">
+      <span class="memory-caption">Sending</span>
+    </div>
+  </div>
+</section>
 
-<div class="card-info" id="cardInfo">
-  <h2 id="cardTitle"></h2>
-  <p id="cardDesc"></p>
-</div>
+
+<!-- new gallery -->
+<!-- uj cat body -->
+<div class="cat-body">
+  <div class="cat-header">
+    <p class="cat-subtitle">Behind creativity</p>
+    <h1 class="cat-main-title">Curious what else we've created?</h1>
+  </div>
+
+  <div class="cat-slider-container" id="sliderContainer">
+    <div class="cat-slider-track" id="sliderTrack">
+      <div class="cat-card" data-title="cim1" data-desc="leiras1">
+        <img src="assets/img/kep1.png" alt="Card 1">
+        <div class="cat-hover-overlay"><span>Click to see more</span></div>
+      </div>
+      <div class="cat-card" data-title="cim2" data-desc="leiras2">
+        <img src="assets/img/kep2.png" alt="Card 2">
+        <div class="cat-hover-overlay"><span>Click to see more</span></div>
+      </div>
+      <div class="cat-card" data-title="cim3" data-desc="leiras3">
+        <img src="assets/img/kep3.png" alt="Card 3">
+        <div class="cat-hover-overlay"><span>Click to see more</span></div>
+      </div>
+      <div class="cat-card" data-title="cim4" data-desc="leiras4">
+        <img src="assets/img/kep4.png" alt="Card 4">
+        <div class="cat-hover-overlay"><span>Click to see more</span></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="cat-close-btn" id="closeBtn">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+    </svg>
+  </button>
+
+  <div class="cat-card-info" id="cardInfo">
+    <h2 id="cardTitle"></h2>
+    <p id="cardDesc"></p>
+  </div>
+</div> <!-- new -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    
 
-    <!-- Modal -->
-    <div id="detailModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Termék Részletei</h2>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modalImage" src="" alt="Termék">
-                </div>
-                <h3 class="modal-title" id="modalItemTitle"></h3>
-                <div class="modal-specs">
-                    <div class="spec-item">
-                        <span class="spec-label">Méret</span>
-                        <span class="spec-value" id="modalSize">50mm</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Anyag</span>
-                        <span class="spec-value">Resin</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Festés</span>
-                        <span class="spec-value">Kézi</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Ár</span>
-                        <span class="spec-value" id="modalPrice">0 Ft</span>
-                    </div>
-                </div>
-                <p class="modal-description" id="modalDescription"></p>
-                <div class="modal-footer">
-                    <button class="btn btn-primary">Etsy-re</button>
-                    <button class="btn btn-secondary">Hozzáadás a kedvencekhez</button>
-                </div>
-            </div>
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Gallery</h3>
+            <ul>
+                <li><a href="#fantasy">Fantasy Figurák</a></li>
+                <li><a href="#sci-fi">Sci-Fi Figurák</a></li>
+                <li><a href="#keychains">Keychains</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Social media</h3>
+            <ul>
+                <li><a href="https://etsy.com" target="_blank">Etsy Shop</a></li>
+                <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://discord.com" target="_blank">Discord</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Támogatás</h3>
+            <ul>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#shipping">Shipping</a></li>
+            </ul>
         </div>
     </div>
+    <div class="footer-divider">
+        <p>&copy; 2026 Figrio Studio. All rights reserved.</p>
+    </div>
+</footer>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Termékkategóriák</h3>
-                <ul>
-                    <li><a href="#fantasy">Fantasy Figurák</a></li>
-                    <li><a href="#sci-fi">Sci-Fi Figurák</a></li>
-                    <li><a href="#keychains">Kulcstartók</a></li>
-                    <li><a href="#custom">Egyedi Megrendelés</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Social media</h3>
-                <ul>
-                    <li><a href="https://etsy.com" target="_blank">Etsy Bolt</a></li>
-                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-                    <li><a href="https://discord.com" target="_blank">Discord</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Támogatás</h3>
-                <ul>
-                    <li><a href="#contact">Kapcsolat</a></li>
-                    <li><a href="#faq">GYIK</a></li>
-                    <li><a href="#shipping">Szállítás Info</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-divider">
-            <p>&copy; 2025 Figrio Studio. Összes jog fenntartva. | 🎨 Egyedi 3D nyomtatott figurák</p>
-        </div>
-    </footer>
+<!-- Scripts -->
+<script src="assets/js/main.js"></script>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
