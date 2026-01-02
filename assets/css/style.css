@@ -558,7 +558,7 @@ footer {
   color: var(--color-primary);
 }
 
-body {
+.cat-body {
   font-family: "Poppins", sans-serif;
   background: #fafafa;
   min-height: 100vh;
@@ -570,12 +570,12 @@ body {
   padding: 40px 20px;
 }
 
-.header {
+.cat-header {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.subtitle {
+.cat-subtitle {
   color: #ff6b35;
   font-size: 14px;
   font-weight: 700;
@@ -584,7 +584,7 @@ body {
   margin-bottom: 16px;
 }
 
-.main-title {
+.cat-main-title {
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 900;
   color: #0a0a0a;
