@@ -4,39 +4,6 @@ const viewBtns = document.querySelectorAll('.view-btn');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-// Mock product data (HU szövegek)
-const productData = {
-    'Fantasy Harcos': {
-        size: '60mm',
-        price: '4,500 Ft',
-        description: 'Egy részletesen kifestett fantasy harcos figura. Vibráló szín, és finom részletmunkával ellátott. Tökéletes gyűjteménynek vagy ajándéknak. Az arca és az armor részletei külön festésűek, amely extra mélységet ad.'
-    },
-    'Sci-Fi Pilóta': {
-        size: '55mm',
-        price: '5,200 Ft',
-        description: 'Futurisztikus pilóta figura metál effektekkel és technológiai részletmunkával. A szoknya és a felszerelés különösen részleteztek. Tökéletes a sci-fi rajongók számára.'
-    },
-    'Sárkány Kulcstartó': {
-        size: '35mm',
-        price: '2,800 Ft',
-        description: 'Kompakt, csini sárkány kulcstartó. Kézzel festett, szilikon karabiner fogóval. Tökéletes kisebb ajándék vagy saját használatra.'
-    },
-    'Egyedi Megrendelés': {
-        size: 'Egyedi',
-        price: '6,000+ Ft',
-        description: 'Saját ötleted szerinti figura készítése. Teljes körű szolgáltatás: 3D tervezés, nyomtatás, festés és szállítás. Egyezzünk meg az elképzeléseidről és az áról.'
-    },
-    'Elf Vadász': {
-        size: '58mm',
-        price: '4,800 Ft',
-        description: 'Filigránul kifestett elf figura íjjal. Részletes arcrészletekkel és gyönyörű zöld árnyalatokkal. A kötöttségek és az íj különösen szépek.'
-    },
-    'Cuki Lény Kulcstartó': {
-        size: '32mm',
-        price: '2,500 Ft',
-        description: 'Mini chibi stílus figura. Puha, vidám színek és vicces karakterek. Tökéletes gyerekeknek, vagy akár collectible ajándéknak. Biztosan mosolygás kerül a szemed.'
-    }
-};
 
 // Open modal
 viewBtns.forEach(btn => {
@@ -93,153 +60,49 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-// -------- Nyelvválasztó (HU / EN) --------
 
-const translations = {
-    hu: {
-        "nav.gallery": "Galéria",
-        "nav.about": "Rólunk",
-        "nav.contact": "Kapcsolat",
 
-        "hero.title": "Egyedi 3D Nyomtatott Figurák",
-        "hero.subtitle":
-            "Kézzel festett, professzionális minőségű miniaturák és kulcstartók. Minden darab egyedi, gondosan kidolgozott.",
+function generatePositions(count) {
+  const isMobile = window.innerWidth <= 768;
+  const positions = [];
+  const center = (count - 1) / 2;
 
-        "filters.all": "Összes",
-        "filters.fantasy": "Fantasy",
-        "filters.scifi": "Sci-Fi",
-        "filters.keys": "Kulcstartók",
-        "filters.custom": "Egyedi"
-    },
-    en: {
-        "nav.gallery": "Gallery",
-        "nav.about": "About",
-        "nav.contact": "Contact",
+  const maxRotate = isMobile ? 10 : 42;
+  const maxZ = isMobile ? 40 : 160;
+  const minHeight = isMobile ? 260 : 420;
+  const maxHeight = isMobile ? 320 : 540;
+  const maxY = isMobile ? 0 : -8;
 
-        "hero.title": "Custom 3D Printed Figures",
-        "hero.subtitle":
-            "Hand-painted, professional quality miniatures and keychains. Every piece is unique and carefully crafted.",
+  for (let i = 0; i < count; i++) {
+    const offset = i - center;
+    const normalized = center === 0 ? 0 : offset / center;
+    const abs = Math.abs(normalized);
+    const ease = Math.pow(abs, 1.4);
 
-        "filters.all": "All",
-        "filters.fantasy": "Fantasy",
-        "filters.scifi": "Sci‑Fi",
-        "filters.keys": "Keychains",
-        "filters.custom": "Custom"
-    }
-};
-
-const langSelect = document.querySelector(".lang-switcher");
-
-function applyLanguage(lang) {
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        const text = translations[lang] && translations[lang][key];
-        if (text) el.textContent = text;
+    positions.push({
+      height: Math.round(maxHeight - ease * (maxHeight - minHeight)),
+      z: Math.round(ease * maxZ),
+      rotateY: Math.round(normalized * maxRotate),
+      y: Math.round(ease * maxY),
+      clip: isMobile
+        ? "polygon(0 0,100% 0,100% 100%,0 100%)"
+        : normalized < 0
+          ? "polygon(0px 4%,100% 0px,100% 100%,0px 96%)"
+          : "polygon(0px 0px,100% 4%,100% 96%,0px 100%)"
     });
-
-    localStorage.setItem("site-lang", lang);
-}
-
-if (langSelect) {
-    const saved = localStorage.getItem("site-lang") || "hu";
-    langSelect.value = saved;
-    applyLanguage(saved);
-
-    langSelect.addEventListener("change", () => {
-        applyLanguage(langSelect.value);
-    });
-}
-
-
-
-const positions = [
-  {
-    height: 620,
-    z: 220,
-    rotateY: 48,
-    y: 0,
-    clip: "polygon(0px 0px, 100% 10%, 100% 90%, 0px 100%)"
-  },
-  {
-    height: 580,
-    z: 165,
-    rotateY: 35,
-    y: 0,
-    clip: "polygon(0px 0px, 100% 8%, 100% 92%, 0px 100%)"
-  },
-  {
-    height: 495,
-    z: 110,
-    rotateY: 15,
-    y: 0,
-    clip: "polygon(0px 0px, 100% 7%, 100% 93%, 0px 100%)"
-  },
-  {
-    height: 420,
-    z: 66,
-    rotateY: 15,
-    y: 0,
-    clip: "polygon(0px 0px, 100% 7%, 100% 93%, 0px 100%)"
-  },
-  {
-    height: 353,
-    z: 46,
-    rotateY: 6,
-    y: 0,
-    clip: "polygon(0px 0px, 100% 7%, 100% 93%, 0px 100%)"
-  },
-  {
-    height: 310,
-    z: 0,
-    rotateY: 0,
-    y: 0,
-    clip: "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
-  },
-  {
-    height: 353,
-    z: 54,
-    rotateY: 348,
-    y: 0,
-    clip: "polygon(0px 7%, 100% 0px, 100% 100%, 0px 93%)"
-  },
-  {
-    height: 420,
-    z: 89,
-    rotateY: -15,
-    y: 0,
-    clip: "polygon(0px 7%, 100% 0px, 100% 100%, 0px 93%)"
-  },
-  {
-    height: 495,
-    z: 135,
-    rotateY: -15,
-    y: 1,
-    clip: "polygon(0px 7%, 100% 0px, 100% 100%, 0px 93%)"
-  },
-  {
-    height: 580,
-    z: 195,
-    rotateY: 325,
-    y: 0,
-    clip: "polygon(0px 8%, 100% 0px, 100% 100%, 0px 92%)"
-  },
-  {
-    height: 620,
-    z: 240,
-    rotateY: 312,
-    y: 0,
-    clip: "polygon(0px 10%, 100% 0px, 100% 100%, 0px 90%)"
   }
-];
+
+  return positions;
+}
+
 
 class CircularSlider {
   constructor() {
     this.container = document.getElementById("sliderContainer");
     this.track = document.getElementById("sliderTrack");
-    this.cards = Array.from(document.querySelectorAll(".card"));
+    this.cards = Array.from(document.querySelectorAll(".cat-card"));
     this.totalCards = this.cards.length;
+    this.positions = []; // Helyek tárolása
     this.isDragging = false;
     this.startX = 0;
     this.dragDistance = 0;
@@ -254,21 +117,37 @@ class CircularSlider {
     this.init();
   }
 
-  init() {
+init() {
+  this.updatePositions();
+  this.applyPositions();
+  this.attachEvents();
+
+  window.addEventListener("resize", () => {
+    this.updatePositions();
     this.applyPositions();
-    this.attachEvents();
+  });
+}
+
+  updatePositions() {
+    this.positions = generatePositions(this.cards.length);
   }
 
   applyPositions() {
     this.cards.forEach((card, index) => {
-      const pos = positions[index];
+      const pos = this.positions[index];
+
       gsap.set(card, {
         height: pos.height,
         clipPath: pos.clip,
-        transform: `translateZ(${pos.z}px) rotateY(${pos.rotateY}deg) translateY(${pos.y}px)`
+        transform: `
+          translateZ(${pos.z}px)
+          rotateY(${pos.rotateY}deg)
+          translateY(${pos.y}px)
+        `
       });
     });
   }
+
 
   expandCard(card) {
     if (this.expandedCard) return;
@@ -282,7 +161,7 @@ class CircularSlider {
 
     const rect = card.getBoundingClientRect();
     const clone = card.cloneNode(true);
-    const overlay = clone.querySelector(".hover-overlay");
+    const overlay = clone.querySelector(".cat-hover-overlay");
     if (overlay) overlay.remove();
 
     clone.style.position = "fixed";
@@ -332,7 +211,7 @@ class CircularSlider {
     const clone = this.cardClone;
     const rect = card.getBoundingClientRect();
     const index = this.cards.indexOf(card);
-    const pos = positions[index];
+    const pos = this.positions[index];
 
     gsap.to(clone, {
       width: rect.width,
@@ -363,7 +242,7 @@ class CircularSlider {
         newIndex = (index + 1) % this.totalCards;
       }
 
-      const pos = positions[newIndex];
+      const pos = this.positions[newIndex];
 
       gsap.set(card, { clipPath: pos.clip });
 
